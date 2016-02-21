@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+    <definition name="base.template" template="/WEB-INF/pages/index.jsp">
+        <put-attribute name="footer" value="/WEB-INF/pages/footer.jsp" />
+    </definition>
+
+    <definition name="main.template" template="/WEB-INF/pages/main.jsp">
+        <put-attribute name="header" value="/WEB-INF/pages/header.jsp" />
+        <put-attribute name="content" value="" />
+        <put-attribute name="footer" value="/WEB-INF/pages/footer.jsp" />
+    </definition>
+
+    <definition name="registration" extends="main.template">
+        <put-attribute name="header" value="/WEB-INF/pages/header-registration.jsp" />
+        <put-attribute name="content" value="/WEB-INF/pages/content-registration.jsp" />
+    </definition>
+
+    <definition name="registration-success" extends="main.template">
+        <put-attribute name="header" value="/WEB-INF/pages/header-registration.jsp" />
+        <put-attribute name="content" value="/WEB-INF/pages/content-registration-success.jsp" />
+    </definition>
+
+    <definition name="content-login" extends="main.template">
+        <put-attribute name="header" value="/WEB-INF/pages/header-login.jsp" />
+        <put-attribute name="content" value="/WEB-INF/pages/content-login.jsp" />
+    </definition>
+
+    <definition name="user.template" template="/WEB-INF/pages/user/main-user.jsp">
+        <put-attribute name="header-user" value="/WEB-INF/pages/user/user-header.jsp" />
+        <put-attribute name="user-menu" value="" />
+        <put-attribute name="content-user" value="" />
+        <put-attribute name="footer" value="/WEB-INF/pages/footer.jsp" />
+    </definition>
+
+    <definition name="user.all.files" extends="user.template">
+        <put-attribute name="user-menu" value="/WEB-INF/pages/user/user-menu-all-files.jsp" />
+        <put-attribute name="content-user" value="/WEB-INF/pages/user/user-all-files.jsp" />
+    </definition>
+
+    <definition name="user.download.files" extends="user.template">
+        <put-attribute name="user-menu" value="/WEB-INF/pages/user/user-menu-download.jsp" />
+        <put-attribute name="content-user" value="/WEB-INF/pages/user/user-download-files.jsp" />
+    </definition>
+
+    <definition name="user.my.files" extends="user.template">
+        <put-attribute name="user-menu" value="/WEB-INF/pages/user/user-menu-my-files.jsp" />
+        <put-attribute name="content-user" value="/WEB-INF/pages/user/user-my-files.jsp" />
+    </definition>
+
+    <definition name="user.edit.profile" extends="user.template">
+        <put-attribute name="user-menu" value="/WEB-INF/pages/user/user-menu-edit-profile.jsp" />
+        <put-attribute name="content-user" value="/WEB-INF/pages/user/user-edit-profile.jsp" />
+    </definition>
+
+    <definition name="content-forget-password" extends="main.template">
+        <put-attribute name="header" value="/WEB-INF/pages/header-registration.jsp" />
+        <put-attribute name="content" value="/WEB-INF/pages/content-forget-password.jsp" />
+    </definition>
+
+    <definition name="content-forget-password-success" extends="main.template">
+        <put-attribute name="header" value="/WEB-INF/pages/header-login.jsp" />
+        <put-attribute name="content" value="/WEB-INF/pages/content-forget-password-success.jsp" />
+    </definition>
+
+    <definition name="content-forget-password-send" extends="main.template">
+        <put-attribute name="header" value="/WEB-INF/pages/header-login.jsp" />
+        <put-attribute name="content" value="/WEB-INF/pages/content-forget-password-send.jsp" />
+    </definition>
+
+    <definition name="forgot.password" extends="main.template">
+        <put-attribute name="header" value="/WEB-INF/pages/header-login.jsp" />
+        <put-attribute name="content" value="/WEB-INF/pages/forgot-password-index.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/pages/footer.jsp" />
+    </definition>
+
+
+</tiles-definitions>

@@ -1,0 +1,603 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+@url-img: "../../resources/img";
+@background-index:           #fafafa;
+@color-button-login:         #2e6da4;
+@border-color-form:          #edeeee;
+@border-color-content-files:  #b3b9c6;
+// Media
+// Extra small screen / phone
+@screen-xs:                  480px;
+//** Deprecated `@screen-xs-min`
+@screen-xs-min:              @screen-xs;
+//** Deprecated `@screen-phone`
+@screen-phone:               @screen-xs-min;
+// Small screen / tablet
+//** Deprecated `@screen-sm`
+@screen-sm:                  768px;
+@screen-sm-min:              @screen-sm;
+//** Deprecated `@screen-tablet`
+@screen-tablet:              @screen-sm-min;
+// Medium screen / desktop
+//** Deprecated `@screen-md`
+@screen-md:                  992px;
+@screen-md-min:              @screen-md;
+//** Deprecated `@screen-desktop`
+@screen-desktop:             @screen-md-min;
+// Large screen / wide desktop
+//** Deprecated `@screen-lg`
+@screen-lg:                  1200px;
+@screen-lg-min:              @screen-lg;
+//** Deprecated `@screen-lg-desktop`
+@screen-lg-desktop:          @screen-lg-min;
+// maximum
+@screen-xs-max:              (@screen-sm-min - 1);
+@screen-sm-max:              (@screen-md-min - 1);
+@screen-md-max:              (@screen-lg-min - 1);
+
+
+body {
+  background: @background-index;
+}
+
+/* Container, Column and Wrap */
+
+.container-background{
+  background: url("@{url-img}/fon6.jpg") 0 0;
+}
+
+.user-main{
+  background: #ffffff;
+}
+
+.wrap{
+
+  @media (max-width: @screen-xs-max){
+    width: auto;
+  }
+  @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    width: auto;
+  }
+  @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    width:auto;
+  }
+  @media (min-width: @screen-lg-min)and (max-height:865px) {
+    margin: 0 auto 0;
+    width: 75%;
+  }
+  @media (min-width: @screen-lg-min)and (min-height:865px) {
+    margin: 80px auto 0;
+    width: 75%;
+  }
+
+}
+
+.content-user{
+  padding: 0 10%;
+}
+.files{
+  height: auto;
+  background-color: #f8f8f8;
+  min-height: 100px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.075) inset;
+  padding:0 10px;
+  margin: 24px auto;
+}
+.header_files{
+  padding:7px 10px;
+  border-bottom: 1px solid @border-color-content-files;
+  height: 55px;
+}
+.content_files{
+  margin-top:5px;
+  padding: 7px 10px;
+}
+
+.footer_files{
+  margin-top:2px;
+  height: 50px;
+}
+
+.wrap-main{
+  margin-top:10px;
+}
+
+.col-main-one{
+  color:#ffffff;
+  font-size:20px;
+}
+.col-main-one-s{
+  color:#7d7f82;
+  @media (max-width: @screen-xs-max){
+    margin: 50px auto 3%;
+    width: 80%;
+  }
+  @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    margin: 50px auto 3%;
+    width: 80%;
+  }
+  @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    margin: 50px auto 17%;
+    width: 80%;
+  }
+  @media (min-width: @screen-lg-min) {
+    margin: 50px auto 7%;
+    width: 80%;
+  }
+}
+
+/* Link*/
+a.forget-index{
+  cursor: pointer;
+}
+
+/* Form */
+
+.form{
+  background-color: #ffffff;
+  border: 1px solid @border-color-form;
+  border-radius: 5px;
+  margin: 50px 10px 10px;
+  padding: 10px 30px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+.form-registration{
+  margin:10px auto 30px;
+}
+.form-login{
+  margin:10px auto 30px;
+}
+.forget-form{
+  padding: 0 18%;
+}
+.forget-index{
+  font-size: 16px;
+  margin-bottom: 50px;
+}
+
+/* Button */
+
+.sign-in{
+  width:100%;
+  background-color: @color-button-login;
+  color:#ffffff;
+  &:hover{
+      background-color:saturate(lighten(@color-button-login, 5%), 10%);;
+      color:#ffffff;
+  }
+}
+
+.inMyFilesDownload{
+  background-color: #2e6da4;
+  color: #ffffff;
+  margin: 5px 0 2% 0;
+  float:left;
+  width: 100%;
+  &:hover{
+    background-color:saturate(lighten(@color-button-login, 5%), 10%);;
+    color:#ffffff;
+  }
+}
+
+.inMyFilesDelete{
+  background-color: #f48578;
+  color: #000000;
+  margin: 5px 2%;
+  float:left;
+  width: 100%;
+  &:hover{
+    background-color:saturate(lighten(#f48578, 5%), 10%);;
+    color:#000000;
+  }
+}
+
+
+.download-button-my-user{
+  float: left;
+  width: 45%;
+  position: relative;
+}
+
+.button-delete-my-files{
+  float: left;
+  width: 45%;
+  margin-left: 2%;
+  position: relative;
+}
+
+.delete{
+  float: left;
+  margin-left:2%;
+  background-color: #f46a5c;
+}
+
+.button-download-my-files{
+  float: left;
+  width: 45%;
+  margin-left: 3%;
+}
+
+
+
+.download-button{
+  width:100%;
+  background-color: @color-button-login;
+  margin: 10px auto;
+  color:#ffffff;
+  &:hover{
+    background-color:saturate(lighten(@color-button-login, 5%), 10%);;
+    color:#ffffff;
+  }
+}
+
+.forgot-btn{
+  margin: 0 40%;
+}
+
+/* Alert and Error */
+.alert-login{
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+/* List */
+.social-contact{
+  float: left;
+}
+
+.span5{
+  float: left;
+  margin:10% 0;
+  list-style-type: none;
+  color: #7d7f82;
+}
+.social-icons{
+  width:70%;
+}
+
+/* Error */
+.error{
+  color:#a01916;
+}
+
+/* Text */
+.text-login{
+  margin-top:5px;
+  margin-bottom:5px;
+  text-align: right;
+}
+.text-registration{
+  margin-top:15px;
+  text-align: center;
+  margin-bottom:5px;
+}
+.text-registration-hd{
+  margin:30px auto 15px;
+  text-align: center;
+}
+.text-registration-success{
+  margin:150px auto;
+  text-align: center;
+}
+.text-forget-password{
+  margin-top:150px;
+  text-align: center;
+}
+
+h6{
+  color:#7d7f82;
+  text-align: center;
+  font-size:14px;
+}
+
+/* Images */
+.image-round{
+  border-radius: 150px;
+  width:40%;
+  margin: 0 30% 0;
+}
+
+.files_img{
+  width:40px;
+  height:40px;
+}
+
+.image-logo{
+  width:70%;
+  margin: 15px 15%;
+}
+.avatar_img{
+  width:170px;
+  height:170px;
+}
+
+/* CheckBox */
+.checkbox-pull-left{
+  color:#7d7f82;
+  font-weight: 400;
+  margin:15px 8%;
+}
+
+/* Carousel */
+.carousel-control.right{
+  background-image:none;
+}
+
+ul.thumbnails{
+  margin: auto;
+  position: relative;
+}
+
+.image-thumbnail{
+  margin: 0 auto;
+  width: 100%;
+}
+
+.item{
+  margin:auto;
+  width: 100%;
+}
+
+.span3{
+  float: left;
+  margin:0 3.5%;
+  list-style-type: none;
+  width: 18%;
+  vertical-align: middle;
+}
+
+.carousel-control.left{
+  background-image:none;
+}
+
+.carousel-control{
+  width:0;
+}
+.item-block{
+  margin: 0 auto;
+}
+
+.avatar{
+  margin:10px 19%;
+  @media (max-width: @screen-xs-max){
+    margin:10px 40%;
+  }
+  @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    margin:10px 40%;
+  }
+  @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    margin:10px 40%;
+  }
+  @media (min-width: @screen-lg-min)and (max-height:865px) {
+    margin:10px 19%;
+  }
+  @media (min-width: @screen-lg-min)and (min-height:865px) {
+    margin:10px 19%;
+  }
+}
+
+.menu-under-avatar{
+  display: block;
+  height:50px;
+  width: 100%;
+  vertical-align: middle;
+  border-top: 1px solid #b3b9c6;
+  text-align: center;
+  padding-top: 10px;
+  &:hover{
+    background-color: #e0e6f3;
+  }
+}
+.active-block{
+  background-color: #e0e6f3;
+}
+
+.add-file{
+  height: auto;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.075) inset;
+  padding:0 10px;
+  margin: 24px auto;
+}
+
+.content-add-files{
+  padding: 10px;
+}
+
+.upload-button{
+  margin-top:20px;
+}
+
+.input-description{
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0;
+  padding: 7px;
+}
+
+.input-download-file{
+  margin-top: 15px;
+}
+
+.block-user{
+  height: auto;
+  background-color: #f8f8f8;
+  min-width: 300px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.075) inset;
+  @media (max-width: @screen-xs-max){
+    position: relative;
+  }
+  @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    position: relative;
+  }
+  @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    position: relative;;
+  }
+  @media (min-width: @screen-lg-min)and (max-height:865px) {
+    position: fixed;
+  }
+  @media (min-width: @screen-lg-min)and (min-height:865px) {
+    position: fixed;
+  }
+}
+.first-block-user{
+  margin-top:10px;
+}
+.last-block-user{
+  margin-bottom:10px;
+  border-bottom: 1px solid #b3b9c6;
+}
+
+.upload-file-input{
+  margin-top:20px;
+}
+
+.block-content{
+  min-height: 450px;
+  float: right;
+  @media (max-width: @screen-xs-max){
+    width:100%;
+  }
+  @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    width:100%;
+  }
+  @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    width:100%;
+  }
+  @media (min-width: @screen-lg-min)and (max-height:865px) {
+
+  }
+  @media (min-width: @screen-lg-min)and (min-height:865px) {
+
+  }
+}
+
+/* Footer */
+.footer-contact{
+  float: right;
+}
+.span4{
+  float: right;
+  margin:0 10px;
+  list-style-type: none;
+  color: #7d7f82;
+}
+
+/* NavBar */
+
+.navbar{
+  min-height:50px;
+  max-height: 75px;
+  @media (max-width: 467px){
+    max-height: 100px;
+  }
+}
+.navbar-header{
+  float: left;
+}
+.image-logo-header{
+  max-height: 65px;
+  margin:0 0;
+}
+.template-header{
+  margin-top:64px;
+  @media (max-width: 467px){
+    margin-top:95px;
+  }
+}
+.header-text{
+  float: right;
+  margin: 20px 0 0;
+  @media (max-width: 467px){
+    margin: 5px 0 0;
+  }
+}
+.wrap-container{
+  margin-top:0;
+}
+
+/* Modal */
+
+.forget-modal{
+  margin-top: 20%;
+}
+
+/* Upload file */
+
+.fileform {
+  background-color: #FFFFFF;
+  border: 1px solid #2e6db4;
+  border-radius: 2px;
+  cursor: pointer;
+  height: 26px;
+  overflow: hidden;
+  padding: 2px;
+  position: relative;
+  text-align: left;
+  vertical-align: middle;
+  width: 230px;
+  margin-top:20px;
+}
+
+.fileform .selectbutton {
+  background-color: #e1e1e1;
+  border: 1px solid #7d7f82;
+  border-radius: 2px;
+  color: #000000;
+  float: right;
+  font-size: 12px;
+  height: 20px;
+  line-height: 20px;
+  overflow: hidden;
+  padding: 0 6px 7px;
+  text-align: center;
+  vertical-align: middle;
+  width: 50px;
+}
+
+.fileform #upload{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  -moz-opacity: 0;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  font-size: 150px;
+  height: 30px;
+  z-index:20;
+}
+
+.fileform #fileformlabel {
+  background-color: #FFFFFF;
+  float: left;
+  height: 22px;
+  line-height: 22px;
+  overflow: hidden;
+  padding: 2px;
+  text-align: left;
+  vertical-align: middle;
+  width:160px;
+}
+
+.name-file{
+  float: left;
+  width: 45%;
+}
+
+.my-files-name{
+  float: left;
+  width: 95%;
+}
+
+.name-user{
+  margin-left: 2%;
+  float: left;
+  width: 45%;
+}
