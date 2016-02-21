@@ -4,7 +4,7 @@ public class Constants {
 
     public static final String MAIL_SERVER = "Students Library <students.library.staff@gmail.com>";
 
-    public static final String SERVER = "http://students-atheneum.rhcloud.com/";
+    public static final String SERVER = "http://students-atheneum.rhcloud.com";
 
     public static final String SERVER_CHANGE = "localhost:8088";
 
