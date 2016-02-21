@@ -246,7 +246,7 @@ public class UserController {
 
         userService.saveOrUpdate(user);
 
-        model.addAttribute("editSuccess","Вы успещно обновили профиль");
+        model.addAttribute("editSuccess","success.edit.profile");
 
         return "user.edit.profile";
     }
