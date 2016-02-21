@@ -80,7 +80,7 @@ public class UserController {
 
 
         if (logout != null) {
-            model.addObject("logout", "Вы успешно вышли с аккаунта");
+            model.addObject("logout", "You have successfully signed out");
         }
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -111,13 +111,13 @@ public class UserController {
 
         String error = "";
         if (exception instanceof BadCredentialsException) {
-            error = "Не правильное имя или пароль";
+            error = "Incorrect Username or Password";
         } else if (exception instanceof LockedException) {
-            error = "Вы не активировали свой аккаунт";
+            error = "You have not activated your account";
         } else if (exception instanceof DisabledException){
-            error = "Ваш пользователь заблокирован";
+            error = "Your user is locked";
         } else {
-            error = "Не правильное имя или пароль";
+            error = "Incorrect Username or Password";
         }
         return error;
     }
@@ -163,7 +163,7 @@ public class UserController {
 
         ModelAndView model = new ModelAndView();
 
-        model.addObject("verification", "Вы успешно активировали свой аккаунт");
+        model.addObject("verification", "You have successfully activated your account");
 
         User user = userService.getUserById(id);
 
@@ -246,7 +246,7 @@ public class UserController {
 
         userService.saveOrUpdate(user);
 
-        model.addAttribute("editSuccess","success.edit.profile");
+        model.addAttribute("editSuccess", "You have successfully updated your profile");
 
         return "user.edit.profile";
     }

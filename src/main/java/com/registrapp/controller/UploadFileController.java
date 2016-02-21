@@ -61,14 +61,14 @@ public class UploadFileController {
 
         if (result.hasErrors()) {
 
-            model.addAttribute("uploadError","Файл не загрузился на сайт");
+            model.addAttribute("uploadError","The file is not loaded on the website");
 
             return "user.download.files";
         }
 
         saveFile(fileModel, currentUser);
 
-        model.addAttribute("uploadSuccess","Вы успешно загрузили этот файл");
+        model.addAttribute("uploadSuccess","You have successfully downloaded the file");
 
         return "user.download.files";
     }

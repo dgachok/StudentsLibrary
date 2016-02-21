@@ -73,7 +73,7 @@ public class ForgotPassword {
                 return "content-forget-password-send";
             }}
 
-        modelMap.addAttribute("noUser", "Такого юзера нет");
+        modelMap.addAttribute("noUser", "This user is not in the database");
 
         return "forgot.password";
     }

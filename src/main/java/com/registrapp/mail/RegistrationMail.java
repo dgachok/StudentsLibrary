@@ -23,11 +23,11 @@ public class RegistrationMail {
         MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
         helper.setFrom(Constants.MAIL_SERVER);
         helper.setTo(to);
-        helper.setSubject("Реєстрація аккаунта");
+        helper.setSubject("Register an account");
         helper.setText("<html><head><meta charset='utf-8'></head><body>" +
                 "<center><img src='cid:logo' width='400px'><br>" +
                 "<a href='"+Constants.SERVER+Constants.VERIFICATION+userId+"'>" +
-                "<button>Активувати аккаунт</button></center></a>"+
+                "<button>Activate account</button></center></a>"+
                 "</body></html>", true);
         ClassPathResource image = new ClassPathResource("img/logo3.png");
         helper.addInline("logo", image);
