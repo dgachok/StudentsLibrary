@@ -20,14 +20,14 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     @Autowired
-    private Md5PasswordEncoder encoder;
+    private Md5PasswordEncoder passwordEncoder;
 
     @Override
     public void addUser(User user) throws NoSuchAlgorithmException {
         user.setSsoId(new Random(System.currentTimeMillis()).nextInt(1000000) + 10000);
         user.setUser_role_id(1);
         user.setAccount_status("disabled");
-        user.setPassword(encoder.encodePassword(user.getPassword(), ""));
+        user.setPassword(passwordEncoder.encodePassword(user.getPassword(), ""));
         userDao.addUser(user);
     }
 
