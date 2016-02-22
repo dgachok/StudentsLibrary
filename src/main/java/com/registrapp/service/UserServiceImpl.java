@@ -8,6 +8,9 @@ import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.Random;
 
@@ -18,12 +21,16 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     @Override
-    public void addUser(User user) {
+    public void addUser(User user) throws NoSuchAlgorithmException {
         user.setSsoId(new Random(System.currentTimeMillis()).nextInt(1000000) + 10000);
         user.setUser_role_id(1);
         user.setAccount_status("disabled");
-        Md5PasswordEncoder encoder = new Md5PasswordEncoder();
-        String hashedPass = encoder.encodePassword(user.getPassword(), user);
+        MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+        messageDigest.update(user.getPassword().getBytes(),0, user.getPassword().length());
+        String hashedPass = new BigInteger(1,messageDigest.digest()).toString(16);
+        if (hashedPass.length() < 32) {
+            hashedPass = "0" + hashedPass;
+        }
         user.setPassword(hashedPass);
         userDao.addUser(user);
     }
