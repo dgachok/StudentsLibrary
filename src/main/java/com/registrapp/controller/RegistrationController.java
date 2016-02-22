@@ -38,8 +38,11 @@ public class RegistrationController {
     @RequestMapping(method = RequestMethod.POST)
     public String processRegistration(@ModelAttribute("RegistrationForm")User user, BindingResult result, ModelMap model) throws MessagingException {
         registrationValidator.validate(user, result);
+
+        model.addAttribute("user", user);
+
         if (result.hasErrors()){
-            model.addAttribute("user", user);
+
             return "registration";
         }
         userService.addUser(user);
