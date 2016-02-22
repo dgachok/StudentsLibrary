@@ -15,6 +15,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 @Controller
@@ -43,13 +46,20 @@ public class ForgotPassword {
     }
 
     @RequestMapping(value = "/forgetNewPassword", method = RequestMethod.POST)
-    public ModelAndView forgetPasswordSuccess(@RequestParam("id") Integer id,@ModelAttribute("password") String password, HttpServletRequest request) {
+    public ModelAndView forgetPasswordSuccess(@RequestParam("id") Integer id,@ModelAttribute("password") String password, HttpServletRequest request) throws NoSuchAlgorithmException {
 
         ModelAndView model = new ModelAndView();
 
         User users = userService.getUserById(id);
 
-        users.setPassword(password);
+        MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+        messageDigest.update(password.getBytes(),0, password.length());
+        String hashedPass = new BigInteger(1,messageDigest.digest()).toString(16);
+        if (hashedPass.length() < 32) {
+            hashedPass = "0" + hashedPass;
+        }
+
+        users.setPassword(hashedPass);
 
         userService.saveOrUpdate(users);
 

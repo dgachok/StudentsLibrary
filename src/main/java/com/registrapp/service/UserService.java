@@ -19,7 +19,7 @@ public interface UserService {
 
     List<User> getAllUser();
 
-    void saveOrUpdate(User user);
+    void saveOrUpdate(User user) throws NoSuchAlgorithmException;
 
 
 }

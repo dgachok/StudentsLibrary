@@ -26,6 +26,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -159,7 +160,7 @@ public class UserController {
 
 
     @RequestMapping(value = "/verification", method = RequestMethod.GET)
-    public ModelAndView verifyEmail(@RequestParam("id") Integer id, HttpServletRequest request) {
+    public ModelAndView verifyEmail(@RequestParam("id") Integer id, HttpServletRequest request) throws NoSuchAlgorithmException {
 
         ModelAndView model = new ModelAndView();
 
@@ -231,7 +232,7 @@ public class UserController {
     }
 
     @RequestMapping(value = { "/edit-profile" }, method = RequestMethod.POST)
-    public String editProfile1(@ModelAttribute("user")User user, ModelMap model, BindingResult result) {
+    public String editProfile1(@ModelAttribute("user")User user, ModelMap model, BindingResult result) throws NoSuchAlgorithmException {
 
         editProfileValidator.validate(user, result);
 
