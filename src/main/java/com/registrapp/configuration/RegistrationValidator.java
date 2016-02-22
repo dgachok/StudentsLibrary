@@ -32,7 +32,6 @@ public class RegistrationValidator implements Validator {
             errors.rejectValue("email", "valid.email", "Email is required.");
         if (userDao.getUserByEmail(form.getEmail()) != null)
             errors.rejectValue("email", "valid.duplicatedEmail", "Email is required.");
-        if (form.getPassword().length() < 8 || form.getPassword().equals(""))
-            errors.rejectValue("password", "valid.password.length", "Incorrect password");
+
     }
 }
