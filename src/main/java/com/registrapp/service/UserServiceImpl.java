@@ -22,8 +22,8 @@ public class UserServiceImpl implements UserService {
         user.setSsoId(new Random(System.currentTimeMillis()).nextInt(1000000) + 10000);
         user.setUser_role_id(1);
         user.setAccount_status("disabled");
-        PasswordEncoder encoder = (PasswordEncoder) new Md5PasswordEncoder();
-        String hashedPass = encoder.encode(user.getPassword());
+        Md5PasswordEncoder encoder = new Md5PasswordEncoder();
+        String hashedPass = encoder.encodePassword(user.getPassword(), user);
         user.setPassword(hashedPass);
         userDao.addUser(user);
     }
