@@ -7,25 +7,25 @@
             <form:form role="form" modelAttribute="RegistrationForm" action="${pageContext.request.contextPath}/registration" method='POST'>
                 <div class="form-group">
                     <label for="fistname">Ім'я користувача :</label>
-                    <input type="text" class="form-control" name="firstname" id="fistname" placeholder="Введіть ім'я користувача">
+                    <input type="text" class="form-control" name="firstname" id="fistname" value="${user.firstname}" placeholder="Введіть ім'я користувача">
                     <form:errors path="firstname" name="firstname" type="text" cssClass="error" />
                 </div>
 
                 <div class="form-group">
                     <label for="lastname">Призвіще користувача :</label>
-                    <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Введіть призвіще користувача">
+                    <input type="text" class="form-control" name="lastname" id="lastname" value="${user.lastname}" placeholder="Введіть призвіще користувача">
                     <form:errors path="lastname" name="lastname" type="text" cssClass="error" />
                 </div>
 
                 <div class="form-group">
                     <label for="email">Ваш Email :</label>
-                    <input type="text" class="form-control" name="email" id="email" placeholder="Введіть пошту користувача">
+                    <input type="text" class="form-control" name="email" id="email" value="${user.email}" placeholder="Введіть пошту користувача">
                     <form:errors path="email" name="email" type="text" cssClass="error" />
                 </div>
 
                 <div class="form-group">
                 <label for="password">Пароль :</label>
-                <input type="password" class="form-control" name="password" id="password" placeholder="Введіть пароль користувача">
+                <input type="password" class="form-control" name="password" id="password" value="${user.password}" placeholder="Введіть пароль користувача">
                     <form:errors path="password" name="password" type="text" cssClass="error" />
                 </div>
 
