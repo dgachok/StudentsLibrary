@@ -20,6 +20,5 @@ public interface UserService {
 
     void saveOrUpdate(User user);
 
-    void updateUser(User user);
 
 }

@@ -3,6 +3,9 @@ package com.registrapp.service;
 import com.registrapp.dao.UserDao;
 import com.registrapp.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
+
+import org.springframework.security.authentication.encoding.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,6 +22,9 @@ public class UserServiceImpl implements UserService {
         user.setSsoId(new Random(System.currentTimeMillis()).nextInt(1000000) + 10000);
         user.setUser_role_id(1);
         user.setAccount_status("disabled");
+        PasswordEncoder encoder = new Md5PasswordEncoder();
+        String hashedPass = encoder.encodePassword(user.getPassword(), user);
+        user.setPassword(hashedPass);
         userDao.addUser(user);
     }
 
@@ -52,20 +58,6 @@ public class UserServiceImpl implements UserService {
         userDao.saveOrUpdate(user);
     }
 
-    @Override
-    public void updateUser(User user) {
-        User entity = userDao.getUserById(user.getId());
-        if(entity!=null){
-            entity.setSsoId(user.getSsoId());
-            entity.setFirstname(user.getFirstname());
-            entity.setLastname(user.getLastname());
-            entity.setEmail(user.getEmail());
-            entity.setUserFiles(user.getUserFiles());
-            entity.setAccount_status(user.getAccount_status());
-            entity.setUser_role_id(user.getUser_role_id());
-            entity.setPassword(user.getPassword());
-        }
-    }
 
     public UserDao getUserDao() {
         return userDao;
