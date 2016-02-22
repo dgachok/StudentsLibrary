@@ -4,6 +4,7 @@ import com.registrapp.dao.UserDao;
 import com.registrapp.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
@@ -18,18 +19,15 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
+    @Autowired
+    private Md5PasswordEncoder encoder;
+
     @Override
     public void addUser(User user) throws NoSuchAlgorithmException {
         user.setSsoId(new Random(System.currentTimeMillis()).nextInt(1000000) + 10000);
         user.setUser_role_id(1);
         user.setAccount_status("disabled");
-        MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-        messageDigest.update(user.getPassword().getBytes(),0, user.getPassword().length());
-        String hashedPass = new BigInteger(1,messageDigest.digest()).toString(16);
-        if (hashedPass.length() < 32) {
-            hashedPass = "0" + hashedPass;
-        }
-        user.setPassword(hashedPass);
+        user.setPassword(encoder.encodePassword(user.getPassword(), ""));
         userDao.addUser(user);
     }
 
