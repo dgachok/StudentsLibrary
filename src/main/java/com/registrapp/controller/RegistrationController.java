@@ -43,7 +43,7 @@ public class RegistrationController {
             return "registration";
         }
         userService.addUser(user);
-        User users = userService.getUserByUsername(user.getFirstname());
+        User users = userService.getUserByEmail(user.getEmail());
         registrationMail.sendRegistrationEmail(users.getEmail(), users.getId());
         return "registration-success";
     }
