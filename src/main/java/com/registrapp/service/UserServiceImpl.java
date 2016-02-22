@@ -3,7 +3,7 @@ package com.registrapp.service;
 import com.registrapp.dao.UserDao;
 import com.registrapp.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +20,7 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     @Autowired
+    @Qualifier("passwordEncoder")
     private Md5PasswordEncoder passwordEncoder;
 
     @Override
@@ -27,7 +28,14 @@ public class UserServiceImpl implements UserService {
         user.setSsoId(new Random(System.currentTimeMillis()).nextInt(1000000) + 10000);
         user.setUser_role_id(1);
         user.setAccount_status("disabled");
-        user.setPassword(passwordEncoder.encodePassword(user.getPassword(), ""));
+        user.setEmail(user.getEmail().toLowerCase());
+        MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+        messageDigest.update(user.getPassword().getBytes(),0, user.getPassword().length());
+        String hashedPass = new BigInteger(1,messageDigest.digest()).toString(16);
+        if (hashedPass.length() < 32) {
+            hashedPass = "0" + hashedPass;
+        }
+        user.setPassword(hashedPass);
         userDao.addUser(user);
     }
 
@@ -70,5 +78,11 @@ public class UserServiceImpl implements UserService {
         this.userDao = userDao;
     }
 
+    public Md5PasswordEncoder getPasswordEncoder() {
+        return passwordEncoder;
+    }
 
+    public void setPasswordEncoder(Md5PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
 }

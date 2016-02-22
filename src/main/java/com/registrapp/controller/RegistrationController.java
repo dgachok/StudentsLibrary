@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.mail.MessagingException;
+import java.security.NoSuchAlgorithmException;
 
 @Controller
 @RequestMapping(value = "/registration")
@@ -36,7 +37,7 @@ public class RegistrationController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String processRegistration(@ModelAttribute("RegistrationForm")User user, BindingResult result, ModelMap model) throws MessagingException {
+    public String processRegistration(@ModelAttribute("RegistrationForm")User user, BindingResult result, ModelMap model) throws MessagingException, NoSuchAlgorithmException {
         registrationValidator.validate(user, result);
 
         model.addAttribute("user", user);

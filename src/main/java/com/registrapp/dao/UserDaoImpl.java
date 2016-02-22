@@ -24,25 +24,25 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void deleteUser(Integer id) {
-        Query query = sessionFactory.getCurrentSession().createSQLQuery("DELETE FROM user WHERE user.id=?").setParameter(1,id);
+        Query query = sessionFactory.getCurrentSession().createSQLQuery("DELETE FROM user WHERE user.id=:id").setParameter("id",id);
         query.executeUpdate();
     }
 
     @Override
     public User getUserById(Integer id) {
-        User userId = (User)sessionFactory.getCurrentSession().createQuery("from User where id=?").setParameter(0,id).uniqueResult();
+        User userId = (User)sessionFactory.getCurrentSession().createQuery("from User where id=:id").setParameter("id",id).uniqueResult();
         return userId;
     }
 
     @Override
     public User getUserByUsername(String username) {
-        User userUsername = (User)sessionFactory.getCurrentSession().createQuery("FROM User where firstname = ?").setParameter(0,username).uniqueResult();
+        User userUsername = (User)sessionFactory.getCurrentSession().createQuery("FROM User where firstname = :firstname").setParameter("firstname",username).uniqueResult();
         return userUsername;
     }
 
     @Override
     public User getUserByEmail(String email) {
-        User userUsername = (User)sessionFactory.getCurrentSession().createQuery("FROM User where email = ?").setParameter(0,email).uniqueResult();
+        User userUsername = (User)sessionFactory.getCurrentSession().createQuery("FROM User where email = :email").setParameter("email",email).uniqueResult();
         return userUsername;
     }
 

@@ -27,7 +27,7 @@ public class UserFileDaoImpl implements UserFileDao {
 
     @Override
     public UserFile findById(int id) {
-        UserFile fileId = (UserFile) sessionFactory.getCurrentSession().createQuery("from UserFile where id=?").setParameter(0,id).uniqueResult();
+        UserFile fileId = (UserFile) sessionFactory.getCurrentSession().createQuery("from UserFile where id=:id").setParameter("id",id).uniqueResult();
         return fileId;
     }
 
