@@ -6,11 +6,11 @@
     <div class="content-add-files">
     <form:form method="POST" modelAttribute="file" enctype="multipart/form-data">
         <label for="name"><strong><h4>Name :</h4></strong></label>
-        <form:input path="name" id="name" name="name" placeholder="Введите имя файла" class="input-description" />
+        <form:input path="name" id="name" value="${file.name}" name="name" placeholder="Введите имя файла" class="input-description" />
         <form:errors path="name" name="name" type="text" cssClass="error" />
         <br />
         <label for="description"><strong><h4>Description :</h4></strong></label>
-        <form:textarea path="description" id="description" name="description" rows="5" cols="50" placeholder="Введите описание" class="input-description" />
+        <form:textarea path="description" value="${file.description}" id="description" name="description" rows="5" cols="50" placeholder="Введите описание" class="input-description" />
         <form:errors path="description" name="description" type="text" cssClass="error" />
 
         <!-- <div class="fileform">
