@@ -36,10 +36,12 @@ public class RegistrationController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String processRegistration(@ModelAttribute("RegistrationForm")User user, BindingResult result) throws MessagingException {
+    public String processRegistration(@ModelAttribute("RegistrationForm")User user, BindingResult result, ModelMap model) throws MessagingException {
         registrationValidator.validate(user, result);
-        if (result.hasErrors())
+        if (result.hasErrors()){
+            model.addAttribute("user", user);
             return "registration";
+        }
         userService.addUser(user);
         User users = userService.getUserByUsername(user.getFirstname());
         registrationMail.sendRegistrationEmail(users.getEmail(), users.getId());

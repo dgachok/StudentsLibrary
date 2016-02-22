@@ -68,7 +68,7 @@ public class ForgotPassword {
         List<User> users = userService.getAllUser();
 
         for(User item : users){
-            if(email.equals(item.getEmail())){
+            if(email.toLowerCase().equals(item.getEmail().toLowerCase())){
                 forgetMail.sendForgetEmail(email, item.getId());
                 return "content-forget-password-send";
             }}

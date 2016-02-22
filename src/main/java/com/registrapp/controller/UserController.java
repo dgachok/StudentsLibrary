@@ -244,6 +244,8 @@ public class UserController {
         if (result.hasErrors())
             return "user.edit.profile";
 
+        model.addAttribute("user", user);
+
         userService.saveOrUpdate(user);
 
         model.addAttribute("editSuccess", "You have successfully updated your profile");
