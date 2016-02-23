@@ -22,6 +22,6 @@
     </div>
 </div>
 </c:forEach>
-<c:if test='${empty "${files}"}'>
+<c:if test='${empty files}'>
     <h3>У вас пока нет файлов. <a href="${pageContext.request.contextPath}/download-files">Хотите добавить?</a></h3>
 </c:if>
