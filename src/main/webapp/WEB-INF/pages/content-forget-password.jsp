@@ -7,8 +7,11 @@
     <form action="${pageContext.request.contextPath}/forgetNewPassword?id=${id}" method="post">
     <div class="form-group">
         <label for="newPassword">Новий пароль</label>
-        <input type="text" class="form-control" name="password" value="${password}" id="newPassword" placeholder="Введіть новий пароль">
+        <input type="password" class="form-control" name="password" id="newPassword" placeholder="Введіть новий пароль">
     </div>
     <button type="submit" name="submit" value="submit" class="btn sign-in">Войти</button>
         </form>
+    <c:if test="${not empty password}">
+        <div class="alert alert-warning alert-login">${password}</div>
+    </c:if>
 </div>

@@ -7,6 +7,7 @@ import com.registrapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -46,9 +47,12 @@ public class ForgotPassword {
     }
 
     @RequestMapping(value = "/forgetNewPassword", method = RequestMethod.POST)
-    public ModelAndView forgetPasswordSuccess(@RequestParam("id") Integer id,@ModelAttribute("password") String password, HttpServletRequest request) throws NoSuchAlgorithmException {
+    public String forgetPasswordSuccess(@RequestParam("id") Integer id, @ModelAttribute("password") String password, HttpServletRequest request, ModelMap model, BindingResult result) throws NoSuchAlgorithmException {
 
-        ModelAndView model = new ModelAndView();
+        if (password.length()<8 || password.equals("")){
+            model.addAttribute("password", "Incorect password");
+            return "redirect:/forget";
+        }
 
         User users = userService.getUserById(id);
 
@@ -63,9 +67,8 @@ public class ForgotPassword {
 
         userService.saveOrUpdate(users);
 
-        model.setViewName("content-forget-password-success");
 
-        return model;
+        return "content-forget-password-success";
 
     }
 
