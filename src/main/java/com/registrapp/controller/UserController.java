@@ -23,6 +23,7 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -43,6 +44,7 @@ public class UserController {
 
     @Autowired
     Md5PasswordEncoder encoder;
+
 
     @Autowired
     @Qualifier("editProfileValidator")
@@ -116,7 +118,7 @@ public class UserController {
 
         String error = "";
         if (exception instanceof BadCredentialsException) {
-            error = "Incorrect Username or Password";
+            error = getErrorMessage(request,"valid.username.password");
         } else if (exception instanceof LockedException) {
             error = "You have not activated your account";
         } else if (exception instanceof DisabledException){
