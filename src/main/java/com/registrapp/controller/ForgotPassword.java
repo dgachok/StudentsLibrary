@@ -51,7 +51,7 @@ public class ForgotPassword {
 
         if (password.length()<8 || password.equals("")){
             model.addAttribute("password", "Incorect password");
-            return "redirect:/forget";
+            return "content-forget-password";
         }
 
         User users = userService.getUserById(id);
