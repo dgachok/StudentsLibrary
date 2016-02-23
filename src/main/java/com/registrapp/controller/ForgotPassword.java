@@ -34,7 +34,7 @@ public class ForgotPassword {
     private ForgetMail forgetMail;
 
     @RequestMapping(value = "/forget", method = RequestMethod.GET)
-    public ModelAndView forgetPasswordGet(@ModelAttribute("id") @RequestParam("id") Integer id, @RequestParam("pass") Integer pass, HttpServletRequest request) {
+    public ModelAndView forgetPasswordGet(@ModelAttribute("id") @RequestParam("id") Integer id, HttpServletRequest request) {
 
         ModelAndView model = new ModelAndView();
 
@@ -42,7 +42,7 @@ public class ForgotPassword {
 
         model.setViewName("content-forget-password");
 
-        if (!(pass.equals("")) || pass != null) {model.addObject("pass", pass);}
+
 
         return model;
 
@@ -54,8 +54,9 @@ public class ForgotPassword {
         User users = userService.getUserById(id);
 
         if (password.length()<8 || password.equals("")){
-            model.addAttribute("pass", "Incorect password");
-            return "redirect:/forget?id="+users.getId();
+            model.addAttribute("id",users.getId());
+            model.addAttribute("pass","Incorrect password");
+            return "content-forget-password";
         }
 
         MessageDigest messageDigest = MessageDigest.getInstance("MD5");
