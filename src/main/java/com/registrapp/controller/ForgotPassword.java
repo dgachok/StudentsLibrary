@@ -5,6 +5,7 @@ import com.registrapp.models.User;
 import com.registrapp.service.UserFileService;
 import com.registrapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -33,6 +34,9 @@ public class ForgotPassword {
     @Autowired
     private ForgetMail forgetMail;
 
+    @Autowired
+    Md5PasswordEncoder passwordEncoder;
+
     @RequestMapping(value = "/forget", method = RequestMethod.GET)
     public ModelAndView forgetPasswordGet(@ModelAttribute("id") @RequestParam("id") Integer id, HttpServletRequest request) {
 
@@ -59,14 +63,7 @@ public class ForgotPassword {
             return "content-forget-password";
         }
 
-        MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-        messageDigest.update(password.getBytes(),0, password.length());
-        String hashedPass = new BigInteger(1,messageDigest.digest()).toString(16);
-        if (hashedPass.length() < 32) {
-            hashedPass = "0" + hashedPass;
-        }
-
-        users.setPassword(hashedPass);
+        users.setPassword(passwordEncoder.encodePassword(password,""));
 
         userService.saveOrUpdate(users);
 
