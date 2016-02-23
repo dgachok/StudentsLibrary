@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <h3>Мои файлы</h3>
+
 <c:forEach var="files" items="${files}">
 <div class="files">
     <div class="header_files">
@@ -21,3 +22,6 @@
     </div>
 </div>
 </c:forEach>
+<c:if test='${empty "${files}"}'>
+    <h3>У вас пока нет файлов. <a href="${pageContext.request.contextPath}/download-files">Хотите добавить?</a></h3>
+</c:if>

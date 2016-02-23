@@ -18,3 +18,6 @@
     </div>
 </div>
 </c:forEach>
+<c:if test='${empty "${files}"}'>
+    <h3>На сайте пока нет файлов. <a href="${pageContext.request.contextPath}/download-files">Хотите первыми добавить файл?</a></h3>
+</c:if>
