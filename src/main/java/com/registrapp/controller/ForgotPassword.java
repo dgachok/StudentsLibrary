@@ -49,12 +49,12 @@ public class ForgotPassword {
     @RequestMapping(value = "/forgetNewPassword", method = RequestMethod.POST)
     public String forgetPasswordSuccess(@RequestParam("id") Integer id, @ModelAttribute("password") String password, HttpServletRequest request, ModelMap model, BindingResult result) throws NoSuchAlgorithmException {
 
+        User users = userService.getUserById(id);
+
         if (password.length()<8 || password.equals("")){
             model.addAttribute("password", "Incorect password");
-            return "content-forget-password";
+            return "redirect:/forget?id="+users.getId();
         }
-
-        User users = userService.getUserById(id);
 
         MessageDigest messageDigest = MessageDigest.getInstance("MD5");
         messageDigest.update(password.getBytes(),0, password.length());

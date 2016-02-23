@@ -9,7 +9,7 @@
         <label for="newPassword">Новий пароль</label>
         <input type="password" class="form-control" name="password" id="newPassword" placeholder="Введіть новий пароль">
     </div>
-    <button type="submit" name="submit" value="submit" class="btn sign-in">Войти</button>
+    <button type="submit" name="submit" value="submit" class="btn sign-in">Change password</button>
         </form>
     <c:if test="${not empty password}">
         <div class="alert alert-warning alert-login">${password}</div>
