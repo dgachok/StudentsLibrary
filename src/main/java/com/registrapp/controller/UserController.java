@@ -174,6 +174,8 @@ public class UserController {
 
         user.setAccount_status("enabled");
 
+        user.setPassword(user.getPassword());
+
         userService.saveOrUpdate(user);
 
         model.setViewName("content-login");
