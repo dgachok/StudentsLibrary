@@ -42,7 +42,7 @@ public class UserController {
     UserFileService userFileService;
 
     @Autowired
-    Md5PasswordEncoder passwordEncoder;
+    Md5PasswordEncoder encoder;
 
     @Autowired
     @Qualifier("editProfileValidator")
@@ -251,7 +251,7 @@ public class UserController {
 
         model.addAttribute("user", user);
 
-        user.setPassword(passwordEncoder.encodePassword(user.getPassword(), ""));
+        user.setPassword(encoder.encodePassword(user.getPassword(), ""));
 
         userService.saveOrUpdate(user);
 

@@ -35,7 +35,7 @@ public class ForgotPassword {
     private ForgetMail forgetMail;
 
     @Autowired
-    Md5PasswordEncoder passwordEncoder;
+    Md5PasswordEncoder encoder;
 
     @RequestMapping(value = "/forget", method = RequestMethod.GET)
     public ModelAndView forgetPasswordGet(@ModelAttribute("id") @RequestParam("id") Integer id, HttpServletRequest request) {
@@ -63,7 +63,7 @@ public class ForgotPassword {
             return "content-forget-password";
         }
 
-        users.setPassword(passwordEncoder.encodePassword(users.getPassword(), ""));
+        users.setPassword(encoder.encodePassword(users.getPassword(), ""));
 
         userService.saveOrUpdate(users);
 

@@ -55,7 +55,7 @@
         <property name="userDao" ref="userDao"/>
     </bean>
 
-    <bean id="userFileService" class="com.registrapp.service.UserFileServiceImpl" >
+    <bean id="userFileService" class="com.registrapp.service.UserFileServiceImpl">
         <property name="userFileDao" ref="userFileDao"/>
     </bean>
 
