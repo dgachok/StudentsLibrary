@@ -22,6 +22,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
@@ -44,6 +45,8 @@ public class UserController {
 
     @Autowired
     Md5PasswordEncoder encoder;
+
+
 
 
     @Autowired
@@ -118,7 +121,7 @@ public class UserController {
 
         String error = "";
         if (exception instanceof BadCredentialsException) {
-            error = getErrorMessage(request,"valid.username.password");
+            error = "Incorrect Username or Password";
         } else if (exception instanceof LockedException) {
             error = "You have not activated your account";
         } else if (exception instanceof DisabledException){

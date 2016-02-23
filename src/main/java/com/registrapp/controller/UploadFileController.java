@@ -15,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartResolver;
 
 import javax.validation.Valid;
 import java.io.IOException;
@@ -87,6 +88,7 @@ public class UploadFileController {
         uploadFile.setContent(multipartFile.getBytes());
         uploadFile.setNameFile(multipartFile.getOriginalFilename());
         uploadFile.setUser(user);
+        multipartFile.transferTo(new java.io.File("data.path"+multipartFile.getOriginalFilename()));
         userFileService.save(uploadFile);
     }
 
