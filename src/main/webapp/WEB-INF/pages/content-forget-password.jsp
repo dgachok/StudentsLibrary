@@ -11,7 +11,7 @@
     </div>
     <button type="submit" name="submit" value="submit" class="btn sign-in">Change password</button>
         </form>
-    <c:if test="${not empty password}">
-        <div class="alert alert-warning alert-login">${password}</div>
+    <c:if test="${not empty pass}">
+        <div class="alert alert-warning alert-login">${pass}</div>
     </c:if>
 </div>

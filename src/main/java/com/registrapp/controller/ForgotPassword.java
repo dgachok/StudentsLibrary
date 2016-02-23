@@ -34,13 +34,15 @@ public class ForgotPassword {
     private ForgetMail forgetMail;
 
     @RequestMapping(value = "/forget", method = RequestMethod.GET)
-    public ModelAndView forgetPasswordGet(@ModelAttribute("id") @RequestParam("id") Integer id, HttpServletRequest request) {
+    public ModelAndView forgetPasswordGet(@ModelAttribute("id") @RequestParam("id") Integer id, @RequestParam("pass") Integer pass, HttpServletRequest request) {
 
         ModelAndView model = new ModelAndView();
 
         model.addObject("id", id);
 
         model.setViewName("content-forget-password");
+
+        model.addObject("pass", pass);
 
         return model;
 
@@ -52,7 +54,7 @@ public class ForgotPassword {
         User users = userService.getUserById(id);
 
         if (password.length()<8 || password.equals("")){
-            model.addAttribute("password", "Incorect password");
+            model.addAttribute("pass", "Incorect password");
             return "redirect:/forget?id="+users.getId();
         }
 
