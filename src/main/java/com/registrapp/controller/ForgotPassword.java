@@ -42,7 +42,7 @@ public class ForgotPassword {
 
         model.setViewName("content-forget-password");
 
-        model.addObject("pass", pass);
+        if (!(pass.equals("")) || pass != null) {model.addObject("pass", pass);}
 
         return model;
 
