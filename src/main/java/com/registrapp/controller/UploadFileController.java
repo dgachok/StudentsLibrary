@@ -88,7 +88,7 @@ public class UploadFileController {
         uploadFile.setContent(multipartFile.getBytes());
         uploadFile.setNameFile(multipartFile.getOriginalFilename());
         uploadFile.setUser(user);
-        multipartFile.transferTo(new java.io.File("upload\\" + multipartFile.getOriginalFilename()));
+        multipartFile.transferTo(new java.io.File(multipartFile.getOriginalFilename()));
         userFileService.save(uploadFile);
     }
 
