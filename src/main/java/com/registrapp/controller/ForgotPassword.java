@@ -63,7 +63,7 @@ public class ForgotPassword {
             return "content-forget-password";
         }
 
-        users.setPassword(encoder.encodePassword(users.getPassword(), ""));
+        users.setPassword(encoder.encodePassword(password, ""));
 
         userService.saveOrUpdate(users);
 

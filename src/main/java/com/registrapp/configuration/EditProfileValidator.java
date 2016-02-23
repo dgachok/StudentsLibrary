@@ -22,9 +22,9 @@ public class EditProfileValidator implements Validator {
     public void validate(Object target, Errors errors) {
         User form = (User) target;
 
-        if (!form.getFirstname().matches(FIO_PATTERN) || form.getFirstname().equals("") || form.getFirstname().length() > 12)
+        if (!form.getFirstname().matches(FIO_PATTERN) || form.getFirstname().equals("") || form.getFirstname().length() > 9)
             errors.rejectValue("firstname", "valid.firstName", "FirstName is required.");
-        if (!form.getLastname().matches(FIO_PATTERN) || form.getLastname().equals("") || form.getLastname().length() > 12)
+        if (!form.getLastname().matches(FIO_PATTERN) || form.getLastname().equals("") || form.getLastname().length() > 10)
             errors.rejectValue("lastname", "valid.lastName", "LastName is required.");
         if (form.getPassword().length() < 8 || form.getPassword().equals(""))
             errors.rejectValue("password", "valid.password.length", "Incorrect password");
