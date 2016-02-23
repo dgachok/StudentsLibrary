@@ -63,13 +63,8 @@ public class ForgotPassword {
             return "content-forget-password";
         }
 
-        MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-        messageDigest.update(password.getBytes(),0, password.length());
-        String hashedPass = new BigInteger(1,messageDigest.digest()).toString(16);
-        if (hashedPass.length() < 32) {
-            hashedPass = "0" + hashedPass;
-        }
-        users.setPassword(hashedPass);
+        users.setPassword(passwordEncoder.encodePassword(users.getPassword(), ""));
+
         userService.saveOrUpdate(users);
 
 

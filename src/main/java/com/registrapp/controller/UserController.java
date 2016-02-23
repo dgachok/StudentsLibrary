@@ -12,6 +12,7 @@ import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.LockedException;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -39,6 +40,9 @@ public class UserController {
 
     @Autowired
     UserFileService userFileService;
+
+    @Autowired
+    Md5PasswordEncoder passwordEncoder;
 
     @Autowired
     @Qualifier("editProfileValidator")
@@ -246,6 +250,8 @@ public class UserController {
             return "user.edit.profile";
 
         model.addAttribute("user", user);
+
+        user.setPassword(passwordEncoder.encodePassword(user.getPassword(), ""));
 
         userService.saveOrUpdate(user);
 

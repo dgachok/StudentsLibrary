@@ -19,6 +19,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
+    @Autowired
+    Md5PasswordEncoder passwordEncoder;
 
     @Override
     public void addUser(User user) throws NoSuchAlgorithmException {
@@ -26,13 +28,7 @@ public class UserServiceImpl implements UserService {
         user.setUser_role_id(1);
         user.setAccount_status("disabled");
         user.setEmail(user.getEmail().toLowerCase());
-        MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-        messageDigest.update(user.getPassword().getBytes(),0, user.getPassword().length());
-        String hashedPass = new BigInteger(1,messageDigest.digest()).toString(16);
-        if (hashedPass.length() < 32) {
-            hashedPass = "0" + hashedPass;
-        }
-        user.setPassword(hashedPass);
+        user.setPassword(passwordEncoder.encodePassword(user.getPassword(), ""));
         userDao.addUser(user);
     }
 
