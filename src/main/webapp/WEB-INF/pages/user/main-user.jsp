@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <c:set var="data" value="../../resources" />
 <html>
@@ -18,7 +19,7 @@
                 <div class="avatar">
                     <img src="../../../resources/img/avatar_user.png" class="avatar_img">
                 </div>
-                Ви увійшли, як ${currentUser.firstname} ${currentUser.lastname}
+                <spring:message code="user.main"/> ${currentUser.firstname} ${currentUser.lastname}
 
                 <tiles:insertAttribute name="user-menu" />
             </div>

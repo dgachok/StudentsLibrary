@@ -21,8 +21,8 @@ public class FileValidator implements Validator {
             }
         }
         if (file.getDescription().length() < 10 || file.getDescription().length() > 200 || file.getDescription().equals(""))
-        {errors.rejectValue("description", "valid.password.length", "Incorrect password");}
+        {errors.rejectValue("description", "valid.description.file", "Incorrect description");}
         if (file.getName().length() > 19 || file.getName().equals(""))
-            errors.rejectValue("name", "valid.password.length", "Incorrect password");
+            errors.rejectValue("name", "valid.name.file", "Incorrect file name");
         }
     }
