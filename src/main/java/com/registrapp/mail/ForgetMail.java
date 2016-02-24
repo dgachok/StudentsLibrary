@@ -26,7 +26,7 @@ public class ForgetMail {
         helper.setText("<html><head><meta charset='utf-8'></head><body>" +
                     "<center><img src='cid:logo' width='400px'><br>" +
                     "<a href='"+Constants.SERVER+Constants.FORGET+userId+"'>" +
-                    "<button>Send new password</button></center></a>"+
+                    "<button>Change password</button></center></a>"+
                     "</body></html>", true);
         ClassPathResource image = new ClassPathResource("img/logo3.png");
         helper.addInline("logo", image);

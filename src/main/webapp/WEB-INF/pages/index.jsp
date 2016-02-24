@@ -15,10 +15,10 @@
         <div class="row">
             <div class="col-md-7 col-main-one">
                 <div class="col-main-one-s">
-                    <h1>Ласкаво просимо у студентську бібліотеку.</h1>
+                    <h1><spring:message code="welcome.title1"/></h1>
                     <br/><br/>
-               <h8>Приєднуйтеся до друзів та інших чудових людей. Отримуйте миттєві оновлення про те, що вас цікавить. А також дивіться, як розгортаються події, – в реальному часі та з різних перспектив.
-                    <br/><br/> За допомогою цього сервісу ви зможете завантажувати книжки, конспекти на сайт і ділитися ними зі своїми друзями. Найближчим часом на сайті з'явиться роль викладача, який зможе продавати методички та викладати свої роботи на сайті.
+               <h8><spring:message code="welcome.title2"/>
+                    <br/><br/> <spring:message code="welcome.title3"/>
                </h8>
 
                   <!-- social buttons
@@ -45,21 +45,21 @@
                         <img src="../../resources/img/logo3.png" class="image-logo">
                         <div class="form-group">
                             <label for="email"><spring:message code="label.email"/></label>
-                            <input type="text" class="form-control" name="username" id="email" placeholder="Введите свою почту">
+                            <input type="text" class="form-control" name="username" id="email" placeholder="<spring:message code="login.email.placeholder"/>">
                         </div>
                         <label for="pass"><spring:message code="label.password"/></label>
                         <div class="input-group">
-                            <input type="password" name="password" id="pass" placeholder="Пароль" class="form-control">
-                            <span class="input-group-addon"><a href="/forgot-password" class="forget-index">Забыли?</a></span>
+                            <input type="password" name="password" id="pass" placeholder="<spring:message code="login.password.placeholder"/>" class="form-control">
+                            <span class="input-group-addon"><a href="/forgot-password" class="forget-index"><spring:message code="login.forgot"/></a></span>
                         </div>
                         <div class="form-group">
                             <label class="checkbox pull-left checkbox-pull-left">
-                                <input type="checkbox" name="remember-me" value="true" checked>Запомнить меня
+                                <input type="checkbox" name="remember-me" value="true" checked><spring:message code="login.remember"/>
                             </label>
                         </div>
                         <br />
-                       <center> <button type="submit" name="submit" value="submit" class="btn sign-in">Войти</button></center>
-                        <div class="text-login">Если у вас еще нет аккаунта, пожалуйста, <a href="${pageContext.request.contextPath}/registration">зарегистрируйтесь</a></div>
+                       <center> <button type="submit" name="submit" value="submit" class="btn sign-in"><spring:message code="login.enter"/></button></center>
+                        <div class="text-login"><spring:message code="login.add.information"/> <a href="${pageContext.request.contextPath}/registration"><spring:message code="login.add.registration"/></a></div>
                     </form>
 
                     <c:if test="${not empty logout}">
@@ -77,40 +77,40 @@
                     <div class="item active">
                         <ul class="thumbnails">
                             <li class="span3">
-                                <img src="../../resources/img/knu.png" alt="КНУ" class="image-thumbnail">
-                                <br><h6>КНУ ім.Шевченка</h6>
+                                <img src="../../resources/img/knu.png" alt="<spring:message code="login.university.knu"/>" class="image-thumbnail">
+                                <br><h6><spring:message code="login.university.knu"/></h6>
                             </li>
                             <li class="span3">
-                                    <img src="../../resources/img/naukma.png" alt="КНУ" class="image-thumbnail">
-                                <br><h6>НАУКМА</h6>
+                                    <img src="../../resources/img/naukma.png" alt="<spring:message code="login.university.naukma"/>" class="image-thumbnail">
+                                <br><h6><spring:message code="login.university.naukma"/></h6>
                             </li>
                             <li class="span3">
-                                <img src="../../resources/img/knteu.png" alt="КНУ" class="image-thumbnail">
-                                <br><h6>КНТЭУ</h6>
+                                <img src="../../resources/img/knteu.png" alt="<spring:message code="login.university.knteu"/>" class="image-thumbnail">
+                                <br><h6><spring:message code="login.university.knteu"/></h6>
                             </li>
                             <li class="span3">
-                                <img src="../../resources/img/knu.png" alt="КНУ" class="image-thumbnail">
-                                <br><h6>КНУ ім.Шевченка</h6>
+                                <img src="../../resources/img/knuba.png" alt="<spring:message code="login.university.knuca"/>" class="image-thumbnail">
+                                <br><h6><spring:message code="login.university.knuca"/></h6>
                             </li>
                         </ul>
                     </div>
                     <div class="item">
                         <ul class="thumbnails">
                             <li class="span3">
-                                <img src="../../resources/img/knu.png" alt="КНУ" class="image-thumbnail">
-                                <br><h6>КНУ ім.Шевченка</h6>
+                                <img src="../../resources/img/knukim.png" alt="<spring:message code="login.university.knuculture"/>" class="image-thumbnail">
+                                <br><h6><spring:message code="login.university.knuculture"/></h6>
                             </li>
                             <li class="span3">
-                                <img src="../../resources/img/naukma.png" alt="КНУ" class="image-thumbnail">
-                                <br><h6>НАУКМА</h6>
+                                <img src="../../resources/img/nau.png" alt="<spring:message code="login.university.nau"/>" class="image-thumbnail">
+                                <br><h6><spring:message code="login.university.nau"/></h6>
                             </li>
                             <li class="span3">
-                                <img src="../../resources/img/knteu.png" alt="КНУ" class="image-thumbnail">
-                                <br><h6>КНТЭУ</h6>
+                                <img src="../../resources/img/kneu.png" alt="<spring:message code="login.university.kneu"/>" class="image-thumbnail">
+                                <br><h6><spring:message code="login.university.kneu"/></h6>
                             </li>
                             <li class="span3">
-                                <img src="../../resources/img/knu.png" alt="КНУ" class="image-thumbnail">
-                                <br><h6>КНУ ім.Шевченка</h6>
+                                <img src="../../resources/img/npu.png" alt="<spring:message code="login.university.npu"/>" class="image-thumbnail">
+                                <br><h6><spring:message code="login.university.npu"/></h6>
                             </li>
                         </ul>
                     </div>
