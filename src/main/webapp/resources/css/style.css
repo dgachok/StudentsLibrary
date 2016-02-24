@@ -458,11 +458,11 @@ ul.thumbnails {
 }
 .header-text {
   float: right;
-  margin: 20px 0 0;
+  margin: 20px 10px 0;
 }
 @media (max-width: 467px) {
   .header-text {
-    margin: 5px 0 0;
+    margin: 5px 5px 0;
   }
 }
 .wrap-container {
