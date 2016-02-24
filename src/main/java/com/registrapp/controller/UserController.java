@@ -1,7 +1,6 @@
 package com.registrapp.controller;
 
 import com.registrapp.configuration.EditProfileValidator;
-import com.registrapp.configuration.RegistrationValidator;
 import com.registrapp.models.User;
 import com.registrapp.models.UserFile;
 import com.registrapp.service.UserFileService;
@@ -16,15 +15,12 @@ import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -132,24 +128,6 @@ public class UserController {
         return error;
     }
 
-    // for 403 access denied page
-    @RequestMapping(value = "/403", method = RequestMethod.GET)
-    public ModelAndView accesssDenied() {
-
-        ModelAndView model = new ModelAndView();
-
-        // check if user is login
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (!(auth instanceof AnonymousAuthenticationToken)) {
-            UserDetails userDetail = (UserDetails) auth.getPrincipal();
-            System.out.println(userDetail);
-
-            model.addObject("username", userDetail.getUsername());
-        }
-
-        model.setViewName("403");
-        return model;
-    }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView loginPage( @RequestParam(value = "error", required = false) String error, HttpServletRequest request) {
@@ -189,7 +167,7 @@ public class UserController {
 
     }
 
-    @RequestMapping(value = "/myfiles", method = RequestMethod.GET)
+    @RequestMapping(value = "/user/myfiles", method = RequestMethod.GET)
     public String Myfiles(ModelMap model) {
 
         String user = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -205,7 +183,7 @@ public class UserController {
 
     }
 
-    @RequestMapping(value = { "/download-file-{fileId}" }, method = RequestMethod.GET)
+    @RequestMapping(value = {"/user/download-file-{fileId}"}, method = RequestMethod.GET)
     @ResponseBody
     public String downloadDocument(@PathVariable("fileId") int fileId, HttpServletResponse response) throws IOException {
         UserFile file = userFileService.findById(fileId);
@@ -215,16 +193,16 @@ public class UserController {
 
         FileCopyUtils.copy(file.getContent(), response.getOutputStream());
 
-        return "redirect:/myfiles";
+        return "redirect:/user/myfiles";
     }
 
-    @RequestMapping(value = { "/delete-file-{fileId}" }, method = RequestMethod.GET)
+    @RequestMapping(value = {"/user/delete-file-{fileId}"}, method = RequestMethod.GET)
     public String deleteDocument(@PathVariable int fileId) {
         userFileService.deleteById(fileId);
-        return "redirect:/myfiles";
+        return "redirect:/user/myfiles";
     }
 
-    @RequestMapping(value = { "/edit-profile" }, method = RequestMethod.GET)
+    @RequestMapping(value = {"/user/edit-profile"}, method = RequestMethod.GET)
     public String editProfile(ModelMap model) {
 
         String userContext = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -242,7 +220,7 @@ public class UserController {
         return "user.edit.profile";
     }
 
-    @RequestMapping(value = { "/edit-profile" }, method = RequestMethod.POST)
+    @RequestMapping(value = {"/user/edit-profile"}, method = RequestMethod.POST)
     public String editProfile1(@ModelAttribute("user")User user, ModelMap model, BindingResult result) throws NoSuchAlgorithmException {
 
         editProfileValidator.validate(user, result);

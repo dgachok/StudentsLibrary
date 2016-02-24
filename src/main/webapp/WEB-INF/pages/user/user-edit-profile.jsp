@@ -7,7 +7,7 @@
 <div class="add-file">
     <div class="content-add-files">
 
-        <form:form role="form" modelAttribute="user" action="${pageContext.request.contextPath}/edit-profile" method="POST">
+        <form:form role="form" modelAttribute="user" action="${pageContext.request.contextPath}/user/edit-profile" method="POST">
             <div class="form-group">
 
                 <form:input type="hidden" path="id" id="id" value="${user.id}" />

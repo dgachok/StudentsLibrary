@@ -235,6 +235,9 @@ a.forget-index {
   margin-top: 150px;
   text-align: center;
 }
+.model-center-text {
+  text-align: center;
+}
 h6 {
   color: #7d7f82;
   text-align: center;
@@ -352,6 +355,24 @@ ul.thumbnails {
 }
 .upload-button {
   margin-top: 20px;
+}
+.button-model {
+  margin-left: 0;
+  margin-right: 0;
+}
+.margin-model {
+  margin-top: 10%;
+}
+.pointer {
+  cursor: pointer;
+}
+.color-privacy-button {
+  background-color: #2e6da4;
+  color: #ffffff;
+}
+.color-privacy-button:hover {
+  background-color: #287bc4;
+  color: #ffffff;
 }
 .input-description {
   width: 100%;

@@ -33,7 +33,7 @@ public class UploadFileController {
     @Autowired
     FileValidator fileValidator;
 
-    @RequestMapping(value = { "/download-files" }, method = RequestMethod.GET)
+    @RequestMapping(value = {"/user/download-files"}, method = RequestMethod.GET)
     public String addDocuments(ModelMap model) {
 
         String user = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -49,7 +49,7 @@ public class UploadFileController {
         return "user.download.files";
     }
 
-    @RequestMapping(value = { "/download-files" }, method = RequestMethod.POST)
+    @RequestMapping(value = {"/user/download-files"}, method = RequestMethod.POST)
     public String uploadFile(@Valid File fileModel, ModelMap model, BindingResult result) throws IOException {
 
         fileValidator.validate(fileModel,result);

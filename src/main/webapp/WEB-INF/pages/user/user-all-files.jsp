@@ -15,10 +15,10 @@
     </div>
     <div class="content_files"><strong><spring:message code="user.allfiles.form1"/> :</strong>
         <br> ${files.description}
-        <center><a href="/download-file-${files.id}"> <button type="submit" name="submit" value="submit" class="btn download-button"><spring:message code="user.allfiles.form2.download"/></button></a></center>
+        <center><a href="/user/download-file-${files.id}"> <button type="submit" name="submit" value="submit" class="btn download-button"><spring:message code="user.allfiles.form2.download"/></button></a></center>
     </div>
 </div>
 </c:forEach>
 <c:if test='${empty files}'>
-    <h3><spring:message code="user.allfiles.text1"/> <a href="${pageContext.request.contextPath}/download-files"><spring:message code="user.allfiles.text2"/></a></h3>
+    <h3><spring:message code="user.allfiles.text1"/> <a href="${pageContext.request.contextPath}/user/download-files"><spring:message code="user.allfiles.text2"/></a></h3>
 </c:if>
