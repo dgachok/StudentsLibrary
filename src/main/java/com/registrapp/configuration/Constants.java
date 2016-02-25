@@ -12,5 +12,5 @@ public class Constants {
 
     public static final String FORGET = "/forget?id=";
 
-    public static final String WebRootPath = "/upload/";
+    public static final String WebRootPath = "${OPENSHIFT_HOMEDIR}/";
 }
