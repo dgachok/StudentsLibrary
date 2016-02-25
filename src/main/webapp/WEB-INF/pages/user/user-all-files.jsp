@@ -7,10 +7,10 @@
 <div class="files">
     <div class="header_files">
         <div class="name-file">
-            <img src="../../../resources/img/documents.png" class="files_img"> ${files.name}
+            <img src="${pageContext.request.contextPath}/resources/img/documents.png" class="files_img"> ${files.name}
         </div>
         <div class="name-user">
-            <img src="../../../resources/img/icon-user-png.png" class="files_img"> ${files.user.firstname} ${files.user.lastname}
+            <img src="${pageContext.request.contextPath}/resources/img/icon-user-png.png" class="files_img"> ${files.user.firstname} ${files.user.lastname}
         </div>
     </div>
     <div class="content_files"><strong><spring:message code="user.allfiles.form1"/> :</strong>

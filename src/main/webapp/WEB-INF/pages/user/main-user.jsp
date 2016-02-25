@@ -2,13 +2,12 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-<c:set var="data" value="../../resources" />
 <html>
 <head>
     <title>Students Library</title>
-    <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../../../resources/css/style.css" rel="stylesheet">
-    <script src="../../../resources/js/uploadfile.js"></script>
+    <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
+    <script src="${pageContext.request.contextPath}/resources/js/uploadfile.js"></script>
 </head>
 <body>
 <tiles:insertAttribute name="header-user" />

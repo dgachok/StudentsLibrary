@@ -5,8 +5,8 @@
 <html>
 <head>
   <title>Students Library</title>
-  <link href="../../resources/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../../resources/css/style.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -14,7 +14,7 @@
     <div class="row">
       <div class="col-md-3">
         <div class="navbar-header">
-          <a href="/index"><img src="../../resources/img/logo3.png" class="image-logo-header"></a>
+          <a href="/index"><img src="${pageContext.request.contextPath}/resources/img/logo3.png" class="image-logo-header"></a>
         </div>
       </div>
       <div class="col-md-9">
@@ -47,8 +47,8 @@
     </ul>
   </div>
 </div>
-<script src="../../resources/js/jquery.min.js"></script>
-<script src="../../resources/js/bootstrap.min.js"></script>
-<script src="../../resources/js/carousel.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/carousel.js"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="navbar-header">
-                    <a href="/user"><img src="../../../resources/img/logo3.png" class="image-logo-header"></a>
+                    <a href="/user"><img src="${pageContext.request.contextPath}/resources/img/logo3.png" class="image-logo-header"></a>
                 </div>
             </div>
             <div class="col-md-9">

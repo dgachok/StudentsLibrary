@@ -6,8 +6,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Students Library</title>
-    <link href="../../resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../../resources/css/style.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
 </head>
 <body>
 <div class="container-fluid container-background">
@@ -25,16 +25,16 @@
                     <br/>
                     <ul class="social-contact">
                         <li class="span5">
-                            <a href=""><img src="../../resources/img/vk.png" class="social-icons"></a>
+                            <a href=""><img src="/resources/img/vk.png" class="social-icons"></a>
                         </li>
                         <li class="span5">
-                            <a href=""><img src="../../resources/img/facebook.png" class="social-icons"></a>
+                            <a href=""><img src="/resources/img/facebook.png" class="social-icons"></a>
                         </li>
                         <li class="span5">
-                            <a href=""><img src="../../resources/img/twitter.png" class="social-icons"></a>
+                            <a href=""><img src="/resources/img/twitter.png" class="social-icons"></a>
                         </li>
                         <li class="span5">
-                            <a href=""><img src="../../resources/img/youtube.png" class="social-icons"></a>
+                            <a href=""><img src="/resources/img/youtube.png" class="social-icons"></a>
                         </li>
                     </ul> -->
                 </div>
@@ -42,7 +42,7 @@
             <div class="col-md-5">
                 <div class="form">
                     <form role="form" name='LoginForm' action="<c:url value='/login' />" method='POST'>
-                        <img src="../../resources/img/logo3.png" class="image-logo">
+                        <img src="${pageContext.request.contextPath}/resources/img/logo3.png" class="image-logo">
                         <div class="form-group">
                             <label for="email"><spring:message code="label.email"/></label>
                             <input type="text" class="form-control" name="username" id="email" placeholder="<spring:message code="login.email.placeholder"/>">
@@ -77,19 +77,19 @@
                     <div class="item active">
                         <ul class="thumbnails">
                             <li class="span3">
-                                <img src="../../resources/img/knu.png" alt="<spring:message code="login.university.knu"/>" class="image-thumbnail">
+                                <img src="${pageContext.request.contextPath}/resources/img/knu.png" alt="<spring:message code="login.university.knu"/>" class="image-thumbnail">
                                 <br><h6><spring:message code="login.university.knu"/></h6>
                             </li>
                             <li class="span3">
-                                    <img src="../../resources/img/naukma.png" alt="<spring:message code="login.university.naukma"/>" class="image-thumbnail">
+                                    <img src="${pageContext.request.contextPath}/resources/img/naukma.png" alt="<spring:message code="login.university.naukma"/>" class="image-thumbnail">
                                 <br><h6><spring:message code="login.university.naukma"/></h6>
                             </li>
                             <li class="span3">
-                                <img src="../../resources/img/knteu.png" alt="<spring:message code="login.university.knteu"/>" class="image-thumbnail">
+                                <img src="${pageContext.request.contextPath}/resources/img/knteu.png" alt="<spring:message code="login.university.knteu"/>" class="image-thumbnail">
                                 <br><h6><spring:message code="login.university.knteu"/></h6>
                             </li>
                             <li class="span3">
-                                <img src="../../resources/img/knuba.png" alt="<spring:message code="login.university.knuca"/>" class="image-thumbnail">
+                                <img src="${pageContext.request.contextPath}/resources/img/knuba.png" alt="<spring:message code="login.university.knuca"/>" class="image-thumbnail">
                                 <br><h6><spring:message code="login.university.knuca"/></h6>
                             </li>
                         </ul>
@@ -97,19 +97,19 @@
                     <div class="item">
                         <ul class="thumbnails">
                             <li class="span3">
-                                <img src="../../resources/img/knukim.png" alt="<spring:message code="login.university.knuculture"/>" class="image-thumbnail">
+                                <img src="${pageContext.request.contextPath}/resources/img/knukim.png" alt="<spring:message code="login.university.knuculture"/>" class="image-thumbnail">
                                 <br><h6><spring:message code="login.university.knuculture"/></h6>
                             </li>
                             <li class="span3">
-                                <img src="../../resources/img/nau.png" alt="<spring:message code="login.university.nau"/>" class="image-thumbnail">
+                                <img src="${pageContext.request.contextPath}/resources/img/nau.png" alt="<spring:message code="login.university.nau"/>" class="image-thumbnail">
                                 <br><h6><spring:message code="login.university.nau"/></h6>
                             </li>
                             <li class="span3">
-                                <img src="../../resources/img/kneu.png" alt="<spring:message code="login.university.kneu"/>" class="image-thumbnail">
+                                <img src="${pageContext.request.contextPath}/resources/img/kneu.png" alt="<spring:message code="login.university.kneu"/>" class="image-thumbnail">
                                 <br><h6><spring:message code="login.university.kneu"/></h6>
                             </li>
                             <li class="span3">
-                                <img src="../../resources/img/npu.png" alt="<spring:message code="login.university.npu"/>" class="image-thumbnail">
+                                <img src="${pageContext.request.contextPath}/resources/img/npu.png" alt="<spring:message code="login.university.npu"/>" class="image-thumbnail">
                                 <br><h6><spring:message code="login.university.npu"/></h6>
                             </li>
                         </ul>
@@ -129,8 +129,8 @@
 
 </div>
 <tiles:insertAttribute name="footer" />
-<script src="../../resources/js/jquery.min.js"></script>
-<script src="../../resources/js/bootstrap.min.js"></script>
-<script src="../../resources/js/carousel.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/carousel.js"></script>
 </body>
 </html>

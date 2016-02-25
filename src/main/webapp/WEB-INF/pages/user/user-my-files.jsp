@@ -7,7 +7,7 @@
 <div class="files">
     <div class="header_files">
         <div class="name-file my-files-name">
-            <img src="../../../resources/img/documents.png" class="files_img"> ${files.name}
+            <img src="${pageContext.request.contextPath}/resources/img/documents.png" class="files_img"> ${files.name}
         </div>
     </div>
     <div class="content_files"><strong><spring:message code="user.files.description"/> :</strong>

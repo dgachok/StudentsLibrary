@@ -4,8 +4,8 @@
 <html>
 <head>
     <title>Students Library</title>
-    <link href="../../resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../../resources/css/style.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
 </head>
 <body>
 <tiles:insertAttribute name="header" />
@@ -15,8 +15,8 @@
     </div>
 </div>
 <tiles:insertAttribute name="footer" />
-<script src="../../resources/js/jquery.min.js"></script>
-<script src="../../resources/js/bootstrap.min.js"></script>
-<script src="../../resources/js/carousel.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/carousel.js"></script>
 </body>
 </html>
