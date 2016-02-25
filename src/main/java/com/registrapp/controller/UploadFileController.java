@@ -1,5 +1,6 @@
 package com.registrapp.controller;
 
+import com.registrapp.configuration.Constants;
 import com.registrapp.configuration.FileValidator;
 import com.registrapp.models.File;
 import com.registrapp.models.User;
@@ -88,7 +89,7 @@ public class UploadFileController {
         uploadFile.setContent(multipartFile.getBytes());
         uploadFile.setNameFile(multipartFile.getOriginalFilename());
         uploadFile.setUser(user);
-        multipartFile.transferTo(new java.io.File("/var/lib/openshift/56c9aa1e7628e104ec00001d/app-root/data/"+multipartFile.getOriginalFilename()));
+        multipartFile.transferTo(new java.io.File(Constants.WebRootPath+multipartFile.getOriginalFilename()));
         userFileService.save(uploadFile);
     }
 
