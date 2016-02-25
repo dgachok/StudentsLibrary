@@ -83,7 +83,7 @@ public class UploadFileController {
 
         MultipartFile multipartFile = file.getFile();
 
-        uploadFile.setName(new java.io.File(multipartFile.getOriginalFilename()).getAbsolutePath());
+        uploadFile.setName(file.getName());
         uploadFile.setDescription(file.getDescription());
         uploadFile.setType(multipartFile.getContentType());
         uploadFile.setContent(multipartFile.getBytes());
