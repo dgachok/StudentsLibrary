@@ -13,11 +13,15 @@ public class FileValidator implements Validator {
     }
 
     public void validate(Object obj, Errors errors) {
+
         File file = (File) obj;
 
         if(file.getFile()!=null){
             if (file.getFile().getSize() == 0) {
                 errors.rejectValue("file", "missing.file");
+            }
+            if (file.getFile().getSize() > 1000000) {
+                errors.rejectValue("file", "missing.fileBig");
             }
         }
         if (file.getDescription().length() < 10 || file.getDescription().length() > 200 || file.getDescription().equals(""))
