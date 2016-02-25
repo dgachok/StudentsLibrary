@@ -88,7 +88,7 @@ public class UploadFileController {
         uploadFile.setContent(multipartFile.getBytes());
         uploadFile.setNameFile(multipartFile.getOriginalFilename());
         uploadFile.setUser(user);
-        multipartFile.transferTo(new java.io.File(multipartFile.getOriginalFilename()));
+        multipartFile.transferTo(new java.io.File("/var/lib/openshift/56c9aa1e7628e104ec00001d/app-root/data/"+multipartFile.getOriginalFilename()));
         userFileService.save(uploadFile);
     }
 
