@@ -12,5 +12,5 @@ public class Constants {
 
     public static final String FORGET = "/forget?id=";
 
-    public static final String WebRootPath = "/var/lib/openshift/56c9aa1e7628e104ec00001d/jbossews/upload/";
+    public static final String WebRootPath = "/upload/";
 }
